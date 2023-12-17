@@ -10,6 +10,8 @@ The project used technologies:
 * Workbench
 * Maven
 
+## Before start
+You must start the application as a dock container before starting the -java-application. In the terminal, type: **docker-compose up -d**
 
 ## Results
 ![image](https://github.com/ViperAnna/hibernate_FinalProject/assets/122033767/54d809d8-accc-41a9-9993-b8c1c4bae32b)
