@@ -1,0 +1,30 @@
+version: '3.8'
+
+services:
+  mysql:
+    image: mysql:8
+    container_name: mysql
+    restart: unless-stopped
+    ports:
+      - "3307:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: admin
+
+  redis:
+    image: redis:latest
+    #    restart: always
+    container_name: redis
+    ports:
+      - "6379:6379"
+      - "8001:8001"
+    depends_on: [mysql]
+
+  app:
+    build:
+      context: ./
+    container_name: app
+    ports:
+      - "8080:8080"
+    depends_on:
+      - mysql
+      - redis
